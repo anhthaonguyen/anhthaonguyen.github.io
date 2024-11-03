@@ -5,6 +5,20 @@ import pandas as pd
 import pickle as pkl 
 import streamlit as st
 
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.datasets import make_regression
+import pickle
+
+# Tạo dữ liệu mẫu (thay thế bằng dữ liệu thực tế của bạn)
+X, y = make_regression(n_samples=100, n_features=4, noise=0.2)
+
+# Khởi tạo và huấn luyện mô hình
+model = RandomForestRegressor()
+model.fit(X, y)
+
+# Lưu mô hình đã huấn luyện vào tệp .pkl
+with open('random_forest_model.pkl', 'wb') as f:
+    pickle.dump(model, f)
 
 
 
